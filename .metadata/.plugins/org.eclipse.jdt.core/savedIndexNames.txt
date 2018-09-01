@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+D:\ECLIPSE\CAC BAI TAP CUA THAY HAI\.metadata\.plugins\org.eclipse.jdt.core
+2551304920.index
+932861351.index
+1903327213.index
+108349307.index
+3900384855.index

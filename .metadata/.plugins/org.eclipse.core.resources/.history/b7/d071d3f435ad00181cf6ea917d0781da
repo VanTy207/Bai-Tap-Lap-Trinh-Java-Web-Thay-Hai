@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Thi trắc nghiệm</title>
+<link rel="stylesheet" href="./css/tracnghiem.css" />
+</head>
+<body>
+	<div class="cauhoi">
+		<h1>THI TRẮC NGHIỆM</h1>
+		<div class="cau1">
+			<h3>Câu 1: 1 + 1 = ?</h3>
+			<p>
+				<label><input type="radio" name="phepcong" value="2" onclick="baiThi.traLoiCau1(this)" /> 2</label>
+			</p>
+			<p>
+				<label><input type="radio" name="phepcong" value="3" onclick="baiThi.traLoiCau1(this)" /> 3</label>
+			</p>	
+			<p>
+				<label><input type="radio" name="phepcong" value="4" onclick="baiThi.traLoiCau1(this)" /> 4</label>
+			</p>
+		</div>
+		<div class="cau2">
+			<h3>Câu 2: Khi trời mưa thường có hiện tượng gì?</h3>
+			<p>
+				<label><input type="checkbox" name="hientuong" id="samset" value="samset" onclick="baiThi.traLoiCau2(this)" /> Sấm sét</label>
+			</p>
+			<p>
+				<label><input type="checkbox" name="hientuong" id="hoahoan" value="hoahoan" onclick="baiThi.traLoiCau2(this)" /> Hỏa hoạn</label>
+			</p>
+			<p>
+				<label><input type="checkbox" name="hientuong" id="ngaplut" value="ngaplut" onclick="baiThi.traLoiCau2(this)" /> Ngập lụt</label>				
+			</p>
+		</div>
+		<div class="cau3">
+			<h3>Câu 3: Thủ đô của Việt Nam là gì?</h3>
+			<p>
+				<select onchange="baiThi.traLoiCau3(this)">
+					<option value="TPHCM">Thành phố Hồ Chí Minh</option>
+					<option value="HaNoi">Hà Nội</option>
+					<option value="CanTho">Cần Thơ</option>
+				</select>
+			</p>
+		</div>
+		<div class="cau4">
+			<h3>Câu 4: Bóng đá còn gọi là gì?</h3>
+			<p>
+				<select multiple="multiple" onclick="baiThi.traLoiCau4(this)">
+					<option id="" value="bongda">Bóng đá</option>
+					<option id="" value="bongban">Bóng bàn</option>
+					<option id="" value="dabanh">Đá banh</option>
+				</select>
+			</p>
+		</div>
+		<div class="cau5">
+			<h3>Câu 5: Từ "quyển sách" tiếng anh gọi là gì?</h3>
+			<p>
+				<input type="text" name="quyensach" onchange="baiThi.traLoiCau5(this)" />
+			</p>
+		</div>
+		<div>
+			<p>
+				<input type="submit" value="Đồng ý" onclick="dongY()" />
+			</p>
+		</div>
+	</div>
+	<div class="ketqua">
+		<h1>KẾT QUẢ</h1>
+		<div>Câu 1: <span id="ketqua1"></span></div>
+		<div>Câu 2: <span id="ketqua2"></span></div>
+		<div>Câu 3: <span id="ketqua3"></span></div>
+		<div>Câu 4: <span id="ketqua4"></span></div>
+		<div>Câu 5: <span id="ketqua5"></span></div>
+	</div>
+	
+	<script type="text/javascript">
+		var baiThi = {
+				cau1: [],
+				cau2: [],
+				cau3: [],
+				cau4: [],
+				cau5: [],
+				traLoiCau1: function(radio){
+					var dapan = radio.value;
+					this.cau1[0] = dapan;
+				},
+				traLoiCau2: function(check){
+					var value = check.value;
+					var position = this.cau2.indexOf(value);
+					if(position == -1){
+						this.cau2.push(value);
+					}
+					else{ 
+						this.cau2.splice(position, 1);
+					}
+					
+					for (var i = 0; i < this.cau2.length; i++) {
+						console.log(this.cau2[i]);
+					}
+				},
+				traLoiCau3: function(select){
+					var dapan = select.value;
+					this.cau3[0] = dapan;
+				},
+				traLoiCau4: function(select){
+						var opts = [];
+						var opt;
+						for(var i = 0; i < select.options.length; i++){
+							opt = select.options[i];
+							if(opt.selected){
+								opts.push(opt);
+							}
+						}
+
+						this.cau4 = opts;
+
+						console.log(this.cau4.length);
+						for(var i = 0; i < this.cau4.length; i++){
+							console.log(this.cau4[i].value);
+						}
+				},
+				traLoiCau5: function(text){
+					var dapan = text.value;
+					this.cau5[0] = dapan;
+				}
+		};
+		
+		var cau1 = ["2"];
+		var cau2 = ["samset", "ngaplut"];
+		var cau3 = ["HaNoi"];
+		var cau4 = ["bongda", "dabanh"];
+		var cau5 = ["book"];
+		
+		function dongY(){
+			if(cau1[0] == baiThi.cau1[0]){
+				document.getElementById("ketqua1").innerHTML = "Đúng";
+			}
+			else{
+				document.getElementById("ketqua1").innerHTML = "Sai";
+			}
+			
+			if(cau2.length == baiThi.cau2.length){
+				var ketThuc = false;
+				for(var i = 0; i < cau2.length; i++){
+					var sai = 0;
+					for(var j = 0; j < baiThi.cau2.length; j++){
+						if(cau2[i] != baiThi.cau2[j]){
+							sai++;	
+						}
+					}
+					if(sai == 2){
+						document.getElementById("ketqua2").innerHTML = "Sai";
+						ketThuc = true;
+						break;
+					}
+				}
+				if(ketThuc == false){
+					document.getElementById("ketqua2").innerHTML = "Đúng";
+				}
+			}
+			else{
+				document.getElementById("ketqua2").innerHTML = "Sai";
+			}
+			
+			if(cau3[0] == baiThi.cau3[0]){
+				document.getElementById("ketqua3").innerHTML = "Đúng";
+			}
+			else{
+				document.getElementById("ketqua3").innerHTML = "Sai";
+			}
+			
+			if(cau4.length == baiThi.cau4.length){
+				var ketThuc = false;
+				for(var i = 0; i < cau4.length; i++){
+					var sai = 0;
+					for(var j = 0; j < baiThi.cau4.length; j++){
+						if(cau4[i] != baiThi.cau4[j]){
+							console.log("Sai");
+							console.log("Sai");
+							sai++;	
+						}
+					}
+					if(sai == 2){
+						document.getElementById("ketqua4").innerHTML = "Sai";
+						console.log("Sai");
+						ketThuc = true;
+						break;
+					}
+				}
+				if(ketThuc == false){
+					document.getElementById("ketqua4").innerHTML = "Đúng";
+					console.log("Đúng");
+					console.log(baiThi.cau4.length);
+				}
+			}
+			else{
+				document.getElementById("ketqua4").innerHTML = "Sai";
+				console.log("Sai");
+				console.log(baiThi.cau4.length);
+				console.log(cau4.length);
+			}
+			
+			if(cau5[0] == baiThi.cau5[0]){
+				document.getElementById("ketqua5").innerHTML = "Đúng"
+			}
+			else{
+				document.getElementById("ketqua5").innerHTML = "Sai";
+			}
+		}
+	</script>
+</body>
+</html>

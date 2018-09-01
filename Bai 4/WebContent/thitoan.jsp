@@ -1,0 +1,185 @@
+<%@ page pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>10 Câu Trắc Nghiệm Toán</title>
+	<link rel="stylesheet" href="./css/baithi.css">
+</head>
+<body>
+	<div id="thoigian">Thời gian làm bài: 
+		<p id="timer">Start</p>
+	</div>
+	<div id="bailam">
+		<h1>Câu hỏi</h1>
+		<div class="cau">Câu 1: 
+			<span id="1"></span> + 
+			<span id="2"></span> = 
+			<input type="text" id="cau1" class="nhaplieu" /> 
+		</div>
+		<div class="cau">Câu 2: 
+			<span id="3"></span> + 
+			<span id="4"></span> = 
+			<input type="text" id="cau2" class="nhaplieu" /> 
+		</div>
+		<div class="cau">Câu 3: 
+			<span id="5"></span> + 
+			<span id="6"></span> = 
+			<input type="text" id="cau3" class="nhaplieu" /> 
+		</div>
+		<div class="cau">Câu 4: 
+			<span id="7"></span> + 
+			<span id="8"></span> = 
+			<input type="text" id="cau4" class="nhaplieu" />
+		</div>
+		<div class="cau">Câu 5: 
+			<span id="9"></span> + 
+			<span id="10"></span> = 
+			<input type="text" id="cau5" class="nhaplieu" /> 
+		</div>
+		<div class="cau">Câu 6: 
+			<span id="11"></span> + 
+			<span id="12"></span> = 
+			<input type="text" id="cau6" class="nhaplieu" />
+		</div>
+		<div class="cau">Câu 7: 
+			<span id="13"></span> + 
+			<span id="14"></span> = 
+			<input type="text" id="cau7" class="nhaplieu" />
+		</div>
+		<div class="cau">Câu 8: 
+			<span id="15"></span> + 
+			<span id="16"></span> = 
+			<input type="text" id="cau8" class="nhaplieu" /> 
+		</div>
+		<div class="cau">Câu 9: 
+			<span id="17"></span> + 
+			<span id="18"></span> = 
+			<input type="text" id="cau9" class="nhaplieu" /> 
+		</div>
+		<div class="cau">Câu 10: 
+			<span id="19"></span> + 
+			<span id="20"></span> = 
+			<input type="text" id="cau10" class="nhaplieu" /> 
+		</div>
+		<div><input type="button" onclick="dongY()" value="Nộp bài" id="dongy" /></div>	
+	</div>
+	<div id="ketqua">
+		<table border="1" class="bangketqua">
+			<thead><caption>BẢNG KẾT QUẢ</caption></thead>
+			<tbody>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>10</th>
+				</tr>
+				<tr>
+					<td id="ketqua1"></td>
+					<td id="ketqua2"></td>
+					<td id="ketqua3"></td>
+					<td id="ketqua4"></td>
+					<td id="ketqua5"></td>
+					<td id="ketqua6"></td>
+					<td id="ketqua7"></td>
+					<td id="ketqua8"></td>
+					<td id="ketqua9"></td>
+					<td id="ketqua10"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="thongbao">
+			<p>Bạn được <span id="diem">...</span> điểm</p>
+			<p>Xếp loại: <span id="xeploai">...</span></p>
+		</div>
+	</div>
+	<script>
+		var timer = 60;
+		// cập nhập thời gian sau mỗi 1 giây
+		var x = setInterval(function() {
+		    // Hiển thị chuỗi thời gian trong thẻ div
+		    document.getElementById("timer").innerHTML = timer;
+		 	timer--;
+
+		    // Nếu thời gian kết thúc, hiển thị chuỗi thông báo
+		    if (timer < 0) {
+		      clearInterval(x);
+		      document.getElementById("timer").innerHTML = "End";
+		      document.getElementById("timer").style.border = "2px solid red";
+		      dongY();
+		    }
+		}, 1000);
+
+		for(var i = 1; i <= 20; i++){
+			document.getElementById(i).innerHTML = Math.ceil((Math.random() * 10));	
+		}
+
+		var dapan = [];
+		var soluong = 0;
+		for(var i = 1; i < 20; i++){
+			var so1 = Number(document.getElementById(i).innerHTML);
+			var so2 = Number(document.getElementById(i + 1).innerHTML);
+			var ketqua = so1 + so2;
+			dapan[soluong++] = ketqua;
+			i++;
+		}
+		for(var i = 0; i < 10; i++){
+			console.log(dapan[i]);
+		}
+
+		var traloi = [];
+		var diem = 0;
+		var xepLoai;
+		function dongY(){
+			clearInterval(x);
+		    document.getElementById("timer").innerHTML = "End";
+		    document.getElementById("timer").style.border = "2px solid red";
+			document.getElementById("dongy").disabled = "disabled";
+			var mangphantu = document.getElementsByTagName("input");
+			for(var i = 0; i < mangphantu.length; i++){
+				mangphantu[i].setAttribute("disabled", "disabled");
+			}
+			for(var i = 0; i < 10; i++){
+				traloi[i] = document.getElementById("cau"+(i+1)).value;
+			}
+			for(var i = 0; i < 10; i++){
+				if(traloi[i] == ''){
+					document.getElementById("ketqua"+(i+1)).innerHTML = "Chưa làm";
+					document.getElementById("ketqua"+(i+1)).style.color = "gray";
+				}
+				else{
+					if(traloi[i] == dapan[i]){
+						document.getElementById("ketqua"+(i+1)).innerHTML = "Đúng";
+						document.getElementById("ketqua"+(i+1)).style.color = "green";
+						diem++;
+					}
+					else{
+						document.getElementById("ketqua"+(i+1)).innerHTML = "Sai";
+						document.getElementById("ketqua"+(i+1)).style.color = "red";
+					}
+				}
+			}
+			document.getElementById("diem").innerHTML = diem;
+			if(diem >= 0 && diem < 2){
+				document.getElementById("xeploai").innerHTML = "Yếu";
+			}
+			else if(diem >= 2 && diem <= 5){
+				document.getElementById("xeploai").innerHTML = "Trung bình";	
+			}
+			else if(diem > 5 && diem < 8){
+				document.getElementById("xeploai").innerHTML = "Khá";	
+			}
+			else if(diem >= 8 && diem <= 10){
+				document.getElementById("xeploai").innerHTML = "Giỏi";	
+			}
+		}
+	</script>
+</body">
+</html>

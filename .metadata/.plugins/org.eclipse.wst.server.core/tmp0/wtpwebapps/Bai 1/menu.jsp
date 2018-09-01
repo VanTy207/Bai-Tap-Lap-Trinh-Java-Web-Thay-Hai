@@ -1,0 +1,33 @@
+<%@ page pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Menu</title>
+	<link rel="stylesheet" href="./css/menu.css">
+</head>
+<body>
+	<div class="menu">
+		<ul class="sup-menu">
+			<li><a href="#">Trang chủ</a></li>
+			<li><a href="#">Giới thiệu</a></li>
+			<li><a href="#">Liên hệ</a></li>
+			<li>
+				<a href="#">Tài khoản</a>
+				<ul class="sub-menu">
+					<li><a href="#">Đăng nhập</a></li>
+					<li><a href="#">Đăng xuất</a></li>
+					<li>
+						<a href="#">Quên mật khẩu</a>
+						<ul class="sub-sub-menu">
+							<li><a href="#">Gửi email xác nhận</a></li>
+							<li><a href="#">Câu hỏi bảo mật</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

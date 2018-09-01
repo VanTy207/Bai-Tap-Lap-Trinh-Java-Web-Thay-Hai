@@ -1,0 +1,80 @@
+.sup-menu{
+	list-style-type: none;
+	padding: 0px;
+	height: 40px;
+	width: 500px;
+	background-color: orange;
+	box-shadow: 0 0 1px black;
+}
+
+.sup-menu>li{
+	float: left;
+	margin-left: 20px;
+	position: relative;
+}
+
+.sup-menu>li>a{
+	display: block;
+	text-decoration: none;
+	line-height: 40px;
+	padding-left: 30px;
+	color: white;
+	font-family: sans-serif;
+}
+
+.sub-menu{
+	position: absolute;
+	width: 200px;
+	box-shadow: 0 0 1px orange;
+	list-style-type: none;
+	background-color: orange;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+
+.sub-menu>li>a{
+	display: block;
+	text-decoration: none;
+	line-height: 40px;
+	color: white;
+	font-family: sans-serif;
+	border-bottom: 1px solid black;
+}
+
+.sub-menu>li>a:hover{
+    font-weight: bold;
+    color: green;
+}
+
+.sup-menu>li:hover>.sub-menu{
+	display: block;
+}
+
+.sub-sub-menu{
+	display: none;
+	width: 250px;
+	box-shadow: 0 0 1px orange;
+	list-style-type: none;
+	background-color: orange;
+	margin: 0px;
+	padding: 0px;
+}
+
+.sub-sub-menu>li>a{
+	display: block;
+	text-decoration: none;
+	line-height: 40px;
+	color: white;
+	font-family: sans-serif;
+	border-bottom: 1px solid black;
+}
+
+.sub-sub-menu>li>a:hover{
+    font-weight: bold;
+    color: green;
+}
+
+.sub-menu>li:hover>.sub-sub-menu{
+	display: block;
+}

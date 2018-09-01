@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+D:\ECLIPSE\CAC BAI TAP CUA THAY HAI\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+108349307.index
+1539313332.index
+3900384855.index
+2551304920.index
+1903327213.index

@@ -1,0 +1,14 @@
+body {
+	width: 100%;
+	position: relative;
+}
+
+.cauhoi{
+	width: 50%;
+	position: absolute;
+}
+
+.ketqua{
+	width: 50%;
+	position: absolute;
+}

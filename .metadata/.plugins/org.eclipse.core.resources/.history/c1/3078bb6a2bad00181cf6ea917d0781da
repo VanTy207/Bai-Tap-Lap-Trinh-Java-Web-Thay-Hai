@@ -1,0 +1,36 @@
+body {
+	width: 100%;
+	margin: 0px;
+	position: relative;
+}
+
+.cauhoi{
+	width: 50%;
+	position: absolute;
+	top: 10px;
+	left: 30px;
+	box-shadow: 0 0 1px black;
+	padding-left: 30px;
+}
+
+.cauhoi>h1{
+	text-align: center;
+	color: red;
+}
+
+.ketqua{
+	width: 50%;
+	position: absolute;
+	top: 10px;
+	right: 30px;
+}
+
+.ketqua>h1{
+	text-align: center;
+	color: blue;
+}
+
+.ketqua>div{
+	margin-left: 210px;
+	margin-top: 10px;
+}

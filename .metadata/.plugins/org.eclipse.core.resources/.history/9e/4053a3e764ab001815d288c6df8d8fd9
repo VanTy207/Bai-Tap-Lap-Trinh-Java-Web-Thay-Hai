@@ -1,0 +1,19 @@
+body {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+}
+
+.cauhoi{
+	width: 50%;
+	position: absolute;
+	
+	box-shadow: 0 0 1px black;
+}
+
+.ketqua{
+	width: 50%;
+	position: absolute;
+	box-shadow: 0 0 1px black;
+}

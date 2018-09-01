@@ -1,0 +1,88 @@
+body{
+	max-width: 100%;
+	position: relative;
+}
+
+h1{
+	margin-top: 0px;
+	text-align: center;
+	color: red;
+}
+
+#thoigian{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 200px;
+	height: 200px;
+	box-shadow: 0 0 1px black;
+	text-align: center;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+#timer{
+	margin-left: 70px;
+	line-height: 50px;
+	border: 2px solid green;
+}
+
+#bailam{
+	position: absolute;
+	top: 10px;
+	left: 250px;
+	width: 500px;
+	height: 550px;
+	box-shadow: 0 0 1px black;
+}
+
+#bailam div{
+	margin-bottom: 20px;
+}
+
+#ketqua{
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	width: 500px;
+	height: 550px;
+}
+
+#timer{
+	height: 50px;
+	width: 50px;
+	box-shadow: 0 0 1px black;
+}
+
+.cau{
+	text-align: center;
+}
+
+#dongy{
+	text-align: center;
+	background-color: green;
+	line-height: 30px;
+	margin-left: 250px;
+}
+
+.bangketqua{
+	border-collapse: collapse;
+}
+
+.bangketqua caption{
+	width: 500px;
+	text-align: center;
+	color: blue;
+	font-family: sans-serif;
+	font-size: 30px;
+}
+
+.bangketqua th{
+	line-height: 30px;
+	max-width: 10px;
+}
+
+.bangketqua td{
+	height: 50px;
+	max-width: 10px;
+}
